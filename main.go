@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
-	"path/filepath"
-	"strings"
+
+	"github.com/fmarmol/basename/pkg/basename"
 )
 
 func main() {
@@ -13,7 +13,6 @@ func main() {
 		os.Exit(1)
 	}
 	fp := os.Args[1]
-	base := filepath.Base(fp)
-	ext := filepath.Ext(fp)
-	fmt.Println(strings.ReplaceAll(base, ext, ""), strings.TrimLeft(ext, "."))
+	fileInfo := basename.ParseFile(fp)
+	fmt.Println(fileInfo.Basename, fileInfo.Ext)
 }
