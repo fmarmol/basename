@@ -6,6 +6,7 @@ import (
 )
 
 type FileInfo struct {
+	Dir      string
 	Basename string
 	Ext      string
 }
@@ -18,5 +19,6 @@ func ParseFile(fp string) *FileInfo {
 
 	ext = strings.TrimLeft(ext, ".")
 
-	return &FileInfo{Basename: base, Ext: ext}
+	dir := filepath.Dir(fp)
+	return &FileInfo{Basename: base, Ext: ext, Dir: dir}
 }

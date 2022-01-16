@@ -14,5 +14,5 @@ func main() {
 	}
 	fp := os.Args[1]
 	fileInfo := basename.ParseFile(fp)
-	fmt.Println(fileInfo.Basename, fileInfo.Ext)
+	fmt.Println(fileInfo.Basename, fileInfo.Ext, fileInfo.Dir)
 }
